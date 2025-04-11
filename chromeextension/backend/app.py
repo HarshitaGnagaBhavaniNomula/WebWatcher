@@ -1,3 +1,4 @@
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
@@ -53,6 +54,12 @@ def analyze_url():
         prediction = gbc.predict(features)[0]
         probabilities = gbc.predict_proba(features)[0]
 
+
+        # Print model output in console
+        logging.info(f"URL: {url}")
+        logging.info(f"Extracted Features: {features}")
+        logging.info(f"Prediction Probabilities: {probabilities}")
+        
         # Ensure probabilities list has two values (for both classes)
         if len(probabilities) != 2:
             return jsonify({"error": "Model prediction error: invalid probabilities"}), 500
