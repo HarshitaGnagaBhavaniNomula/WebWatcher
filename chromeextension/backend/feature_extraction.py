@@ -1,13 +1,12 @@
 import ipaddress
 import re
-import urllib.request
 from bs4 import BeautifulSoup
-import socket
 import requests
 from googlesearch import search
 import whois
 from datetime import date, datetime
 from urllib.parse import urlparse
+import logging
 
 class FeatureExtraction:
     def __init__(self, url):
@@ -42,6 +41,7 @@ class FeatureExtraction:
         
         try:
             self.whois_response = whois.whois(self.domain)
+            logging.info(self.whois_response)
         except:
             self.whois_response = None
 
@@ -89,6 +89,7 @@ class FeatureExtraction:
 
     # 2. Long URL
     def long_url(self):
+        logging.info("Hello")
         return -1 if len(self.url) > 75 else (0 if len(self.url) >= 54 else 1)
 
     # 3. Shortened URL
