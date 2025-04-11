@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffcccc;
+}
+
+.warning-container {
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    max-width: 500px;
+}
+
+h1 {
+    color: red;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
